@@ -6,6 +6,7 @@
 
 const answer = document.getElementById('answer')
 const answerRec = document.getElementById('answerRec')
+const input = document.getElementById('userInput')
 
 function fibs(num) { 
     const fibSequence = [0,1]
@@ -15,9 +16,9 @@ function fibs(num) {
     return fibSequence
 }
 
-answer.textContent = `ans = ${fibs(5)}`
-answerRec.textContent = `ansRec = ${fibsRec(5)}`
-
+input.addEventListener('input', () => {
+    answerRec.textContent = `[${fibsRec(Number(input.value)).join(', ')}]`
+})
 
 function fibsRec(num) { 
     if (num === 1) return [0];
